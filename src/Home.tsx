@@ -8,7 +8,7 @@ export function Home() {
     useEffect(() => {
         if (!showPhoto) return
         if (!audioRef.current) {
-            audioRef.current = new Audio('/zvonok-skype-no-eto-gromko.mp3')
+            audioRef.current = new Audio(`${import.meta.env.BASE_URL}zvonok-skype-no-eto-gromko.mp3`)
             audioRef.current.loop = true
         }
         audioRef.current.currentTime = 0
@@ -25,7 +25,8 @@ export function Home() {
         <>
         <div className="bg-laba w-screen h-screen flex-row">
             <img
-                src="a14cdded9e1f82cad41681232b657e0a.jpg"
+                // ИСПРАВЛЕНО ТУТ:
+                src={`${import.meta.env.BASE_URL}a14cdded9e1f82cad41681232b657e0a.jpg`}
                 className="w-screen h-60 border-2 cursor-pointer"
                 onClick={() => setShowPhoto(true)}
             />
@@ -36,7 +37,7 @@ export function Home() {
             <Modal onClose={() => setShowPhoto(false)} className="max-w-md bg-black">
                 <a href="https://example.com" target="_blank" rel="noopener noreferrer">
                     <img
-                        src="6f0ebf291422a4daab23c53759b1b5ea.jpg"
+                        src={`${import.meta.env.BASE_URL}6f0ebf291422a4daab23c53759b1b5ea.jpg`}
                         className="block w-full h-auto cursor-pointer"
                     />
                 </a>

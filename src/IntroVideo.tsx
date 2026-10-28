@@ -23,7 +23,7 @@ export function IntroVideo({ onEnd }: IntroVideoProps) {
     <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
       <video
         ref={videoRef}
-        src="/0f40ac7ed08065e1831991d0be42b6af.mp4"
+        src={`${import.meta.env.BASE_URL}0f40ac7ed08065e1831991d0be42b6af.mp4`}
         className="w-full h-full object-contain"
         playsInline
         onEnded={onEnd}

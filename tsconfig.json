@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler", 
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    
+    "paths": {
+      "@/*": ["./src/*"] 
+    }
+  },
+  "exclude": ["node_modules", "dist", "build"]
+}

@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./src/admodal.tsx","./src/app.tsx","./src/dragndropcomponent.tsx","./src/home.tsx","./src/introvideo.tsx","./src/labaone.tsx","./src/modal.tsx","./src/sidebar.tsx","./src/videocomponent.tsx","./src/main.tsx","./src/logic/truthtable.tsx","./src/logic/convertor.ts","./src/logic/discretka.ts","./src/logic/error.ts"],"errors":true,"version":"6.0.3"}

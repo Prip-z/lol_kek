@@ -30,7 +30,7 @@ export function AdModal({ onClose }: AdModalProps) {
     <Modal onClose={onClose}>
       <video
         ref={videoRef}
-        src="/_~1 (online-video-cutter.com).mp4"
+        src="/musor_drop.mp4"
         className="w-full block"
         autoPlay
         loop

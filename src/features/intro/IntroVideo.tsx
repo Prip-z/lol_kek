@@ -35,7 +35,7 @@ export function IntroVideo({ onEnd }: IntroVideoProps) {
           onClick={handleStart}
           className="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-2xl font-semibold cursor-pointer"
         >
-          ▶ Начать
+          Начать
         </button>
       )}
     </div>

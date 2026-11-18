@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import { DragNDropComponent } from "./DragNDropComponent";
-import { convertor } from "./logic/convertor";
-import { GetPCNF, GetPDNF } from "./logic/discretka";
-import { TruthTable } from "./logic/TruthTable";
+import { useEffect, useRef, useState } from 'react';
+import { DragNDropComponent } from './DragNDropComponent';
+import { TruthTable } from './TruthTable';
+import { convertor } from '../../entities/logic/convertor';
+import { GetPCNF, GetPDNF } from '../../entities/logic/discretka';
+import { assetUrl } from '../../shared/lib/assets';
 
 export function LabaOne() {
     const [textRaw, setTextRaw] = useState<number[]>([])
@@ -15,7 +16,7 @@ export function LabaOne() {
     useEffect(() => {
         if (isWork) {
             if (!audioRef.current) {
-                audioRef.current = new Audio('/explosion-meme_dTCfAHs.mp3')
+                audioRef.current = new Audio(assetUrl('explosion-meme_dTCfAHs.mp3'))
             }
             audioRef.current.currentTime = 0
             audioRef.current.play().catch(() => {})

@@ -1,9 +1,12 @@
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  base: '/lol_kek/', 
+  base: '/lol_kek/',
   plugins: [react(), tailwindcss()],
-})
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
+});

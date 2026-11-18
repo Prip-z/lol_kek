@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Modal } from "./Modal";
+import { RoflDialog } from "@/shared/ui/RoflDialog";
 
 export function Home() {
     const [showPhoto, setShowPhoto] = useState(false)
@@ -25,7 +25,6 @@ export function Home() {
         <>
         <div className="bg-laba w-screen h-screen flex-row">
             <img
-                // ИСПРАВЛЕНО ТУТ:
                 src={`${import.meta.env.BASE_URL}a14cdded9e1f82cad41681232b657e0a.jpg`}
                 className="w-screen h-60 border-2 cursor-pointer"
                 onClick={() => setShowPhoto(true)}
@@ -34,14 +33,14 @@ export function Home() {
         </div>
 
         {showPhoto && (
-            <Modal onClose={() => setShowPhoto(false)} className="max-w-md bg-black">
+            <RoflDialog open={showPhoto} onRealClose={() => setShowPhoto(false)} className="max-w-md bg-black">
                 <a href="https://example.com" target="_blank" rel="noopener noreferrer">
                     <img
                         src={`${import.meta.env.BASE_URL}6f0ebf291422a4daab23c53759b1b5ea.jpg`}
                         className="block w-full h-auto cursor-pointer"
                     />
                 </a>
-            </Modal>
+            </RoflDialog>
         )}
         </>
     )

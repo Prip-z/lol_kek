@@ -1,4 +1,5 @@
-import { assetUrl } from '../../shared/lib/assets';
+import { assetUrl } from '@/shared/lib/assets';
+import { BannerRotator } from '@/features/ads/BannerRotator';
 
 type PageId = 'home' | 'laba1' | 'laba2' | 'laba3';
 
@@ -9,7 +10,7 @@ interface SidebarProps {
 
 export function Sidebar({ currentPage, onChangePage }: SidebarProps) {
   return (
-    <aside className="bg-sidebar w-70 h-screen flex flex-col justify-start shrink-0">
+    <aside className="bg-sidebar w-70 h-screen flex flex-col justify-start shrink-0 overflow-hidden">
       <button
         type="button"
         onClick={() => onChangePage('home')}
@@ -29,17 +30,13 @@ export function Sidebar({ currentPage, onChangePage }: SidebarProps) {
       >
         <img
           className="w-15 h-15 object-cover"
-          src={assetUrl('laba1-icon.jpg')}
+          src={assetUrl('labaOneIcon.jpg')}
           alt="Первая лаба"
         />
         <span>Первая лаба</span>
       </button>
 
-      <img
-        src={assetUrl('d097887dd6d1e64a2781b7901e448c84.jpg')}
-        alt="Мем в сайдбаре"
-        className="mt-auto w-full object-cover"
-      />
+      <BannerRotator />
     </aside>
   );
 }

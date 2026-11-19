@@ -43,8 +43,8 @@ export function App() {
   return (
     <>
       {showIntro && <IntroVideo onEnd={() => setShowIntro(false)} />}
-      <AdModal open={showAd} onClose={() => setShowAd(false)} />
-      {!showIntro && <BannerRotator />}
+      {showAd && <AdModal open={showAd} onClose={() => setShowAd(false)} />}
+      {!showIntro}
 
       <div className="flex flex-1 flex-row">
         <Sidebar onChangePage={setActivePage} currentPage={activePage} />

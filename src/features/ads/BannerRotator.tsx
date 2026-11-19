@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
-import { assetUrl } from '../../shared/lib/assets';
-import { cryptoRandomInt } from '../../shared/lib/random';
+import { assetUrl } from '@/shared/lib/assets';
+import { cryptoRandomInt } from '@/shared/lib/random';
+
+const bannerModules = import.meta.glob<string>(
+  [
+    '/src/assets/banner/*.{jpg,JPG,jpeg,JPEG,png,PNG,webp,WEBP,gif,GIF}',
+    '/src/assets/banners/*.{jpg,JPG,jpeg,JPEG,png,PNG,webp,WEBP,gif,GIF}',
+  ],
+  { eager: true, import: 'default' }
+);
 
 const BANNER_IMAGES = [
-  'd097887dd6d1e64a2781b7901e448c84.jpg',
-  'a14cdded9e1f82cad41681232b657e0a.jpg',
-  '6f0ebf291422a4daab23c53759b1b5ea.jpg',
-  'labaOneIcone.jpg', 
+  assetUrl('d097887dd6d1e64a2781b7901e448c84.jpg'),
+  ...Object.values(bannerModules),
 ];
 
 export function BannerRotator() {
@@ -15,8 +21,10 @@ export function BannerRotator() {
   );
 
   useEffect(() => {
+    if (BANNER_IMAGES.length < 2) return;
+
     const intervalId = window.setInterval(() => {
-      if (document.hidden || BANNER_IMAGES.length < 2) return;
+      if (document.hidden) return;
 
       setCurrentIndex((prevIndex) => {
         const step = cryptoRandomInt(BANNER_IMAGES.length - 1);
@@ -28,14 +36,11 @@ export function BannerRotator() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-4 z-30 w-56 rounded-lg overflow-hidden border-2 border-amber-400 shadow-xl bg-black">
-      <div className="bg-amber-400 text-black text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider">
-        Горячее предложение рядом
-      </div>
+    <div className="mt-auto w-full h-52 max-h-52 overflow-hidden shrink-0 border-t border-black bg-black">
       <img
-        src={assetUrl(BANNER_IMAGES[currentIndex])}
-        alt="Реклама"
-        className="w-full h-36 object-cover block"
+        src={BANNER_IMAGES[currentIndex]}
+        alt="Мем в сайдбаре"
+        className="w-full h-full object-cover block"
       />
     </div>
   );

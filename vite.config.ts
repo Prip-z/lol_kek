@@ -1,10 +1,16 @@
+import { fileURLToPath, URL } from 'node:url';
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   base: '/lol_kek/',
   plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   build: {
     outDir: 'docs',
     emptyOutDir: true,

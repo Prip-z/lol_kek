@@ -77,7 +77,7 @@ export function WordleGate({ children }: { children: ReactNode }) {
   return (
     <div className="bg-laba flex-1 min-h-screen text-white flex flex-col items-center justify-center gap-4 p-6">
       <h2 className="text-2xl font-bold text-center">
-        Нада решиьт вордли или не пустим
+        Нада решить вордли или не пустим
       </h2>
       <p className="text-sm text-zinc-400">
         {solution
